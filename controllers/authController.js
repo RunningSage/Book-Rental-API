@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import jwt from "jsonwebtoken";
 import catchAsync from "../utils/catchAsync.js";
+import AppError from "../utils/AppError.js";
 
 const signToken = (userId) => {
   return jwt.sign({ userId }, process.env.JWT_SECRET, {
@@ -13,13 +14,11 @@ export const signupController = catchAsync(async (req, res, next) => {
 
   const existingUser = await User.findOne({ email });
   if (existingUser) {
-    return res.status(400).json({ message: "Email already in use" });
+    return next(new AppError("Email already in use", 400));
   }
 
   if (password !== passwordConfirm) {
-    return res
-      .status(400)
-      .json({ message: "Password and passwordConfirm do not match" });
+    return next(new AppError("Password and passwordConfirm do not match", 400));
   }
 
   const user = new User({ name, email, contact, password });
@@ -39,12 +38,12 @@ export const loginController = catchAsync(async (req, res, next) => {
 
   const user = await User.findOne({ email }).select("+password");
   if (!user) {
-    return res.status(401).json({ message: "Incorrect email or password" });
+    return next(new AppError("Incorrect email or password", 401));
   }
 
   const isPasswordCorrect = await user.correctPassword(password, user.password);
   if (!isPasswordCorrect) {
-    return res.status(401).json({ message: "Incorrect email or password" });
+    return next(new AppError("Incorrect email or password", 401));
   }
 
   const token = signToken(user._id);

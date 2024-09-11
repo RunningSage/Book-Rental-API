@@ -1,6 +1,10 @@
 import express from "express";
 import { protect, restrictTo } from "../middleware/authMiddleware.js";
-import { getAllTransactions, issueController, returnController } from "../controllers/transactionController.js";
+import {
+  getAllTransactions,
+  issueController,
+  returnController,
+} from "../controllers/transactionController.js";
 
 const router = express.Router();
 

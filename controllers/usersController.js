@@ -1,6 +1,8 @@
 import catchAsync from "../utils/catchAsync.js";
 import User from "../models/User.js";
 import Transaction from "../models/Transaction.js";
+import AppError from "../utils/AppError.js";
+import bcrypt from "bcryptjs";
 
 export const getAllUsers = catchAsync(async (req, res, next) => {
   const users = await User.find().select("-__v");
@@ -40,7 +42,7 @@ export const updateUser = catchAsync(async (req, res, next) => {
   });
 
   if (!user) {
-    return res.status(404).json({ message: "User not found" });
+    return next(new AppError("User not found", 404));
   }
 
   res.json({
@@ -52,19 +54,19 @@ export const updateUser = catchAsync(async (req, res, next) => {
 });
 
 export const deleteUser = catchAsync(async (req, res, next) => {
-  const { id } = req.params;
 
+  const { id } = req.params;
   const user = await User.findByIdAndDelete(id);
 
   if (!user) {
-    return res.status(404).json({ message: "User not found" });
+    return next(new AppError("User not found", 404));
   }
-
   res.json({
     status: "success",
     message: "User deleted successfully",
   });
 });
+
 
 export const myInfoHandler = catchAsync(async (req, res, next) => {
   const user_id = req.user._id;
@@ -72,7 +74,7 @@ export const myInfoHandler = catchAsync(async (req, res, next) => {
   const user = await User.findById(user_id).select("name email");
 
   if (!user) {
-    return res.status(404).json({ message: "User not found" });
+    return next(new AppError("User not found", 404));
   }
 
   const currentlyIssuedTransactions = await Transaction.find({
@@ -116,7 +118,7 @@ export const userInfoHandler = catchAsync(async (req, res, next) => {
   const user = await User.findById(user_id).select("name email");
 
   if (!user) {
-    return res.status(404).json({ message: "User not found" });
+    return next(new AppError("User not found", 404));
   }
 
   const currentlyIssuedTransactions = await Transaction.find({

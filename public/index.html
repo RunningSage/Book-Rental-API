@@ -1,29 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Documentation</title>
-</head>
-<body>
-    <h1>Welcome to the Book Rental API</h1>
-    <p>
-        Please use this link to test the API: 
-        <a href="https://documenter.getpostman.com/view/38127552/2sAXqmAkTa" target="_blank">
-            Postman Documentation
-        </a>
-    </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Documentation | Book Rental API</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      .container {
+        max-width: 100%;
+        width: 90%;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2 {
+        color: #444;
+      }
+      h2 {
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .credentials {
+        border: 1px solid #ddd;
+        padding: 15px;
+        background-color: #f9f9f9;
+        margin-top: 20px;
+        border-radius: 4px;
+      }
+      .credentials h2 {
+        margin-top: 0;
+      }
 
-    <h2>Admin Login Credentials</h2>
-    <ul>
-        <li><strong>Email:</strong> john.doe@example.com</li>
-        <li><strong>Password: </strong>password123</li>
-    </ul>
+      @media (max-width: 600px) {
+        body {
+          margin: 10px;
+        }
+        .container {
+          width: 100%;
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to the Book Rental API Documentation</h1>
+      <p>Explore the details and test the API using the links below:</p>
 
-    <h2>User Login Credentials</h2>
-    <ul>
-        <li><strong>Email:</strong> foo@example.com</li>
-        <li><strong>Password: </strong>password123</li>
-    </ul>
-</body>
+      <h2>Project Information</h2>
+      <p>
+        GitHub Repository:
+        <a href="https://github.com/RunningSage/Book-Rental-API" target="_blank"
+          >View Repository</a
+        >
+      </p>
+      <p>
+        Hosted API:
+        <a href="https://book-rental-api.onrender.com/" target="_blank"
+          >Book Rental API</a
+        >
+      </p>
+      <p>
+        API Testing Documentation:
+        <a
+          href="https://documenter.getpostman.com/view/38127552/2sAXqmAkTa"
+          target="_blank"
+          >Postman Documentation</a
+        >
+      </p>
+      <p>
+        <strong>Note:</strong> Please use the <i>render.com</i> environment for
+        testing.
+      </p>
+
+      <div class="credentials">
+        <h2>Admin Login Credentials</h2>
+        <p><strong>Email:</strong> john.doe@example.com</p>
+        <p><strong>Password:</strong> password123</p>
+      </div>
+
+      <div class="credentials">
+        <h2>User Login Credentials</h2>
+        <p><strong>Email:</strong> foo@example.com</p>
+        <p><strong>Password:</strong> password123</p>
+      </div>
+    </div>
+  </body>
 </html>

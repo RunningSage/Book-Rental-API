@@ -1,6 +1,8 @@
 import Transaction from "../models/Transaction.js";
 import catchAsync from "../utils/catchAsync.js";
 import Book from "../models/Book.js";
+import AppError from "../utils/AppError.js";
+
 export const getAllTransactions = catchAsync(async (req, res, next) => {
   const { start_date, end_date } = req.query;
 
@@ -16,6 +18,7 @@ export const getAllTransactions = catchAsync(async (req, res, next) => {
 
   res.json(transactions);
 });
+
 export const issueController = catchAsync(async (req, res, next) => {
   if (req.user.role === "user") {
     req.body.user_id = req.user._id;
@@ -35,7 +38,7 @@ export const issueController = catchAsync(async (req, res, next) => {
   });
 
   if (!book) {
-    return res.status(404).json({ message: "Book not found" });
+    return next(new AppError("Book not found", 404));
   }
 
   const transaction = new Transaction({
@@ -47,18 +50,14 @@ export const issueController = catchAsync(async (req, res, next) => {
 
   await transaction.save();
 
-  const transactionObj = transaction.toObject();
-  delete transactionObj.__v;
+  const transactionObj = await Transaction.findOne({
+    book_name,
+    author: book.author,
+    user_id,
+    issue_date,
+  }).select('-__v');
 
-  const reorderedTransaction = {
-    _id: transactionObj._id,
-    book_name: transactionObj.book_name,
-    author: transactionObj.author,
-    user_id: transactionObj.user_id,
-    issue_date: transactionObj.issue_date,
-  };
-
-  res.status(201).json({ transaction: reorderedTransaction });
+  res.status(201).json({ transaction: transactionObj });
 });
 
 export const returnController = catchAsync(async (req, res, next) => {
@@ -80,9 +79,7 @@ export const returnController = catchAsync(async (req, res, next) => {
   });
 
   if (!transaction) {
-    return res
-      .status(404)
-      .json({ message: "Transaction not found or already returned" });
+    return next(new AppError("Transaction not found or already returned", 404));
   }
 
   const issueDate = new Date(transaction.issue_date);
@@ -91,7 +88,7 @@ export const returnController = catchAsync(async (req, res, next) => {
   }).select("rent_per_day author");
 
   if (!book) {
-    return res.status(404).json({ message: "Book not found" });
+    return next(new AppError("Book not found", 404));
   }
 
   const returnDate = new Date(return_date);

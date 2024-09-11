@@ -7,6 +7,7 @@ const bookSchema = new mongoose.Schema({
     trim: true,
     minlength: [3, "Book name must be at least 3 characters long"],
     maxlength: [100, "Book name must be less than 100 characters"],
+    lowercase: true,
   },
   author: {
     type: String,
@@ -14,6 +15,7 @@ const bookSchema = new mongoose.Schema({
     trim: true,
     minlength: [3, "Author name must be at least 3 characters long"],
     maxlength: [100, "Author name must be less than 100 characters"],
+    lowercase: true,
   },
   category: {
     type: String,
@@ -29,6 +31,7 @@ const bookSchema = new mongoose.Schema({
       "other",
     ],
     default: "other",
+    lowercase: true,
   },
   rent_per_day: {
     type: Number,

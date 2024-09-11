@@ -1,6 +1,7 @@
 import Book from "../models/Book.js";
 import Transaction from "../models/Transaction.js";
 import catchAsync from "../utils/catchAsync.js";
+import AppError from "../utils/AppError.js";
 
 export const getAllBooks = catchAsync(async (req, res, next) => {
   const {
@@ -59,7 +60,7 @@ export const deleteBook = catchAsync(async (req, res, next) => {
   const book = await Book.findByIdAndDelete(id);
 
   if (!book) {
-    return res.status(404).json({ message: "Book not found" });
+    return next(new AppError("Book not found", 404));
   }
 
   res.json({
@@ -78,7 +79,7 @@ export const updateBook = catchAsync(async (req, res, next) => {
   });
 
   if (!book) {
-    return res.status(404).json({ message: "Book not found" });
+    return next(new AppError("Book not found", 404));
   }
 
   res.json({
@@ -104,7 +105,7 @@ export const bookInfoDisplayer = catchAsync(async (req, res, next) => {
   }).select("book_name author");
 
   if (!book) {
-    return res.status(404).json({ message: "Book not found" });
+    return next(new AppError("Book not found", 404));
   }
 
   if (req.user.role === "admin") {
@@ -148,7 +149,7 @@ export const bookRentCalculator = catchAsync(async (req, res, next) => {
   }).select("book_name author");
 
   if (!book) {
-    return res.status(404).json({ message: "Book not found" });
+    return next(new AppError("Book not found", 404));
   }
 
   res.json({
