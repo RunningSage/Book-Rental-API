@@ -23,6 +23,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Contact number is required"],
     match: [/^\d{10}$/, "Contact number must be a valid 10-digit number"],
+    unique: true,
   },
   role: {
     type: String,

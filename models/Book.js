@@ -37,8 +37,13 @@ const bookSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Rent per day is required"],
     min: [1, "Rent per day must be at least 1"],
+    max: [1000, "Rent per day must be less than 1000"],
   },
 });
+
+bookSchema.path("rent_per_day").validate(function (value) {
+  return value > 0 && value <= 1000;
+}, "Invalid rent per day amount");
 
 const Book = mongoose.model("Book", bookSchema);
 export default Book;
