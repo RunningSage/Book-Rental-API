@@ -1,0 +1,38 @@
+[
+    {
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com",
+      "contact": "1234567890",
+      "role": "user",
+      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
+    },
+    {
+      "name": "Bob Smith",
+      "email": "bob.smith@example.com",
+      "contact": "2345678901",
+      "role": "user",
+      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
+    },
+    {
+      "name": "Charlie Brown",
+      "email": "charlie.brown@example.com",
+      "contact": "3456789012",
+      "role": "admin",
+      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
+    },
+    {
+      "name": "Diana Prince",
+      "email": "diana.prince@example.com",
+      "contact": "4567890123",
+      "role": "user",
+      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
+    },
+    {
+      "name": "Eve Adams",
+      "email": "eve.adams@example.com",
+      "contact": "5678901234",
+      "role": "admin",
+      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
+    }
+  ]
+  
