@@ -54,7 +54,6 @@ export const updateUser = catchAsync(async (req, res, next) => {
 });
 
 export const deleteUser = catchAsync(async (req, res, next) => {
-
   const { id } = req.params;
   const user = await User.findByIdAndDelete(id);
 
@@ -66,7 +65,6 @@ export const deleteUser = catchAsync(async (req, res, next) => {
     message: "User deleted successfully",
   });
 });
-
 
 export const myInfoHandler = catchAsync(async (req, res, next) => {
   const user_id = req.user._id;
