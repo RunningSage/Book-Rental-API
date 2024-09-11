@@ -53,6 +53,42 @@ export const addBook = catchAsync(async (req, res, next) => {
   });
 });
 
+export const deleteBook = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+
+  const book = await Book.findByIdAndDelete(id);
+
+  if (!book) {
+    return res.status(404).json({ message: "Book not found" });
+  }
+
+  res.json({
+    status: "success",
+    message: "Book deleted successfully",
+  });
+});
+
+export const updateBook = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+  const updates = req.body;
+
+  const book = await Book.findByIdAndUpdate(id, updates, {
+    new: true,
+    runValidators: true,
+  });
+
+  if (!book) {
+    return res.status(404).json({ message: "Book not found" });
+  }
+
+  res.json({
+    status: "success",
+    data: {
+      book,
+    },
+  });
+});
+
 export const bookInfoDisplayer = catchAsync(async (req, res, next) => {
   const { book_name } = req.params;
 

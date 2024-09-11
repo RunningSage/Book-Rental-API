@@ -1,78 +1,37 @@
-<<<<<<< HEAD
 [
-    {
-      "name": "Alice Johnson",
-      "email": "alice.johnson@example.com",
-      "contact": "1234567890",
-      "role": "user",
-      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
-    },
-    {
-      "name": "Bob Smith",
-      "email": "bob.smith@example.com",
-      "contact": "2345678901",
-      "role": "user",
-      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
-    },
-    {
-      "name": "Charlie Brown",
-      "email": "charlie.brown@example.com",
-      "contact": "3456789012",
-      "role": "admin",
-      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
-    },
-    {
-      "name": "Diana Prince",
-      "email": "diana.prince@example.com",
-      "contact": "4567890123",
-      "role": "user",
-      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
-    },
-    {
-      "name": "Eve Adams",
-      "email": "eve.adams@example.com",
-      "contact": "5678901234",
-      "role": "admin",
-      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
-    }
-  ]
-=======
-[
-    {
-      "name": "Alice Johnson",
-      "email": "alice.johnson@example.com",
-      "contact": "1234567890",
-      "role": "user",
-      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
-    },
-    {
-      "name": "Bob Smith",
-      "email": "bob.smith@example.com",
-      "contact": "2345678901",
-      "role": "user",
-      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
-    },
-    {
-      "name": "Charlie Brown",
-      "email": "charlie.brown@example.com",
-      "contact": "3456789012",
-      "role": "admin",
-      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
-    },
-    {
-      "name": "Diana Prince",
-      "email": "diana.prince@example.com",
-      "contact": "4567890123",
-      "role": "user",
-      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
-    },
-    {
-      "name": "Eve Adams",
-      "email": "eve.adams@example.com",
-      "contact": "5678901234",
-      "role": "admin",
-      "password": "$2a$12$abcdefghijklmnopqrstuvwx.yz"  
-    }
-  ]
->>>>>>> 73404a13e8b5f25286daa489696d1c1f84919655
-  
+  {
+    "name": "Alice",
+    "email": "alice@example.com",
+    "contact": "1234567890",
+    "role": "user",
+    "password": "$2a$12$i8VZJ4Hse/c6sE.s4HI7b.y5hZXoT70FcxiaV68x/v8facQnTAcKS"
+  },
+  {
+    "name": "Bob",
+    "email": "bob@example.com",
+    "contact": "1234567891",
+    "role": "user",
+    "password": "$2a$12$zdrFLRcPOEZG5RjRRj.Io.bhuSSNT9o/helWSOWGirnkC7RKhs0vW"
+  },
+  {
+    "name": "Charlie",
+    "email": "charlie@example.com",
+    "contact": "1234567892",
+    "role": "user",
+    "password": "$2a$12$bTmme/ihJP4TjS/1i939G.HsUORDiIIOz/tLrCdDP9xHxRYew9W/."
+  },
+  {
+    "name": "David",
+    "email": "david@example.com",
+    "contact": "1234567893",
+    "role": "admin",
+    "password": "$2a$12$GlWXuteFDNsD2uS/64iws.Ka/7Tl.JHC8DHRMM3JSsiH6VGKoAqmO"
+  },
+  {
+    "name": "Eve",
+    "email": "eve@example.com",
+    "contact": "1234567894",
+    "role": "user",
+    "password": "$2a$12$AOhCfABdPmfsRawqdne2O.2anVbFysbc..sxGP59DkusGYJ3IVuje"
+  }
+]

@@ -7,6 +7,65 @@ export const getAllUsers = catchAsync(async (req, res, next) => {
   res.json(users);
 });
 
+export const addUser = catchAsync(async (req, res, next) => {
+  const { name, email, contact, role, password } = req.body;
+
+  const newUser = await User.create({
+    name,
+    email,
+    contact,
+    role,
+    password,
+  });
+
+  res.status(201).json({
+    status: "success",
+    data: {
+      user: newUser,
+    },
+  });
+});
+
+export const updateUser = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+  const updates = req.body;
+
+  if (updates.password) {
+    updates.password = await bcrypt.hash(updates.password, 12);
+  }
+
+  const user = await User.findByIdAndUpdate(id, updates, {
+    new: true,
+    runValidators: true,
+  });
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  res.json({
+    status: "success",
+    data: {
+      user,
+    },
+  });
+});
+
+export const deleteUser = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+
+  const user = await User.findByIdAndDelete(id);
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  res.json({
+    status: "success",
+    message: "User deleted successfully",
+  });
+});
+
 export const myInfoHandler = catchAsync(async (req, res, next) => {
   const user_id = req.user._id;
 
