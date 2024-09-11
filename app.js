@@ -9,6 +9,9 @@ const app = express();
 
 app.use(express.json());
 
+app.get('/',(req,res)=>{
+    res.send("Please use this to test the API : https://documenter.getpostman.com/view/38127552/2sAXqmAkTa");
+})
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/books", bookRoutes);
 app.use("/api/v1/transactions", transactionRoutes);
