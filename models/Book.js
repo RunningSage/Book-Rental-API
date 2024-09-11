@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import mongoose from "mongoose";
 
 const bookSchema = new mongoose.Schema({
@@ -39,3 +40,46 @@ const bookSchema = new mongoose.Schema({
 
 const Book = mongoose.model("Book", bookSchema);
 export default Book;
+=======
+import mongoose from "mongoose";
+
+const bookSchema = new mongoose.Schema({
+  book_name: {
+    type: String,
+    required: [true, "Book name is required"],
+    trim: true,
+    minlength: [3, "Book name must be at least 3 characters long"],
+    maxlength: [100, "Book name must be less than 100 characters"],
+  },
+  author: {
+    type: String,
+    required: [true, "Author name is required"],
+    trim: true,
+    minlength: [3, "Author name must be at least 3 characters long"],
+    maxlength: [100, "Author name must be less than 100 characters"],
+  },
+  category: {
+    type: String,
+    required: [true, "Category is required"],
+    enum: [
+      "fiction",
+      "non-fiction",
+      "fantasy",
+      "biography",
+      "science",
+      "history",
+      "mystery",
+      "other",
+    ],
+    default: "other",
+  },
+  rent_per_day: {
+    type: Number,
+    required: [true, "Rent per day is required"],
+    min: [1, "Rent per day must be at least 1"],
+  },
+});
+
+const Book = mongoose.model("Book", bookSchema);
+export default Book;
+>>>>>>> 73404a13e8b5f25286daa489696d1c1f84919655
