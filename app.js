@@ -12,6 +12,7 @@ import rateLimit from "express-rate-limit";
 import mongoSanitize from "express-mongo-sanitize";
 import xss from "xss-clean";
 import cors from "cors";
+import morgan from "morgan";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -22,6 +23,7 @@ app.use(helmet());
 app.use(cors());
 app.use(mongoSanitize());
 app.use(xss());
+app.use(morgan('dev'));
 
 const limiter = rateLimit({
   max: 100,
