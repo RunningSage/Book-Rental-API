@@ -7,7 +7,7 @@ import {
   myInfoHandler,
   updateUser,
   userInfoHandler,
-} from "../controllers/usersController.js";
+} from "../controllers/userController.js";
 
 const router = express.Router();
 

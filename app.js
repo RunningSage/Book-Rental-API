@@ -1,8 +1,8 @@
 import express from "express";
-import userRoutes from "./routes/users.js";
-import bookRoutes from "./routes/books.js";
-import transactionRoutes from "./routes/transactions.js";
-import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/userRoutes.js";
+import bookRoutes from "./routes/bookRoutes.js";
+import transactionRoutes from "./routes/transactionRoutes.js";
+import authRoutes from "./routes/authRoutes.js"
 import errorController from "./controllers/errorController.js";
 import path from "path";
 import { fileURLToPath } from "url";
