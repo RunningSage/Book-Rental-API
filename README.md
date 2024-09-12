@@ -21,7 +21,7 @@ The application is deployed on Render.com. You can access the hosted API at:
 
 - [Book Rental API](https://book-rental-api.onrender.com/)
 
-## Postman Documentation
+## Postman Documentation  
 
 To test the API, you can use the Postman documentation provided:
 
@@ -178,3 +178,11 @@ To run this project locally, follow these steps:
 ## Authentication
 
 The API uses JWT-based authentication. Include the token in the `Authorization` header as `Bearer <token>` for protected routes.
+
+### Admin Login Credentials
+- **Email**: john.doe@example.com
+- **Password**: password123
+
+### User Login Credentials
+- **Email**: foo@example.com
+- **Password**: password123
