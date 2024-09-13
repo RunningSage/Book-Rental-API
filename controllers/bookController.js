@@ -112,7 +112,7 @@ export const bookInfoDisplayer = catchAsync(async (req, res, next) => {
     res.json({
       book_name: book.book_name,
       author: book.author,
-      total_count: issuedBy.length,
+      no_of_times_issued: issuedBy.length,
       issued_by: issuedBy,
       currently_issued_by: currentTransaction
         ? currentTransaction.user_id
